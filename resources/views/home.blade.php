@@ -4,7 +4,7 @@
     @forelse($salas as $sala)
         <div class="row sala">
             <div class="col-md-2">
-                <img src="{{ $sala['image'] }}/{{ $sala['id'] }}" alt="">
+                <img src="{{ $sala['image'] }}?{{ $sala['id'] }}" alt="">
             </div>
             <div class="col-md-10">
                 <p class="sala-text">{{ $sala['nombre'] }}</p>

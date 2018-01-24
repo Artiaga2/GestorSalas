@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Salas;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -13,10 +14,8 @@ class PagesController extends Controller
      */
     public function home(){
             return view('welcome');
-            $salas = [
 
-
-            ];
+            $salas = Salas::orderBy('nombre', 'desc')->get();
 
             return view('home',[
                 'salas' => $salas

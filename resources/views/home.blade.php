@@ -1,18 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    @forelse($salas as $sala)
-        <div class="row sala">
-            <div class="col-md-2">
-                <img src="{{ $sala['image'] }}?{{ $sala['id'] }}" alt="">
-            </div>
-            <div class="col-md-10">
-                <p class="sala-text">{{ $sala['nombre'] }}</p>
-                <p><strong>Tipo:</strong> {{ $sala['tipo'] }} {{$sala['capacidad']}} {{$sala['disponibilidad']}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
 
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
             </div>
         </div>
-    @empty
-        <p>No hay salas para mostrar.</p>
-    @endforelse
-@endsection 
+    </div>
+</div>
+@endsection

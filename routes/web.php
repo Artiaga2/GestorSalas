@@ -13,3 +13,13 @@
 
 Route::get('/', 'PagesController@home');
 Route::get('/saludo', 'PagesController@saludo');
+
+Route::get('/salas/crear', 'SalasController@create');
+Route::get('/salas/{id}', 'SalasController@show');
+Route::post('/salas/crear', 'SalasController@store');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

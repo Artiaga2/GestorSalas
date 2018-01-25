@@ -13,9 +13,9 @@ class PagesController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function home(){
-            return view('welcome');
+//            return view('welcome');
 
-            $salas = Salas::orderBy('nombre', 'desc')->get();
+            $salas = Salas::orderBy('created_at', 'desc')->get();
 
             return view('home',[
                 'salas' => $salas

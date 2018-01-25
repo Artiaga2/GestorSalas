@@ -20,6 +20,7 @@ class CreateSalasTable extends Migration
             $table->string('imagen');
             $table->integer('capacidad');
             $table->char('disponibilidad');
+            $table->timestamps();
         });
     }
 

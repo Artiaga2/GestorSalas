@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Crear Salas</strong></div>
+    <div class="panel-body">
     <form action="{{ url('/') }}/salas/crear" method="post">
         {{ csrf_field() }}
         <div class="form-group @if( $errors->has('nombre'))has-error @endif">
@@ -70,4 +75,8 @@
 
         <button type="submit">Enviar</button>
     </form>
+    </div>
+            </div>
+        </div>
+    </div>
 @endsection

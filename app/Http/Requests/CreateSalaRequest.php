@@ -26,7 +26,16 @@ class CreateSalaRequest extends FormRequest
         return [
             'nombre' => [
                 'required', 'max:40'
-            ]
+            ],
+            'tipo' => [
+                'required', 'max:120'
+            ],
+            'capacidad' => [
+                'required', 'max:1000'
+            ],
+            'disponibilidad' => [
+                'required'
+            ],
         ];
     }
 
@@ -34,7 +43,12 @@ class CreateSalaRequest extends FormRequest
     {
         return [
             'nombre.required' => 'La sala debe tener un nombre',
-            'nombre.max' => 'Nombre muy largo'
+            'nombre.max' => 'Nombre muy largo',
+            'tipo.required' => 'La sala debe tener un Tipo',
+            'tipo.max' => 'Tipo muy largo',
+            'capacidad.required' => 'La sala debe tener una capacidad',
+            'capacidad.max' => 'Capacidad muy grande',
+            'disponibilidad.required' => 'La sala debe tener una disponibilidad'
         ];
     }
 }

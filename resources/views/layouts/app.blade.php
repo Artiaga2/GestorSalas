@@ -36,10 +36,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
-                    </ul>
 
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/salas/crear">Crear Salas</a></li>
+                        @if( Auth::check())
+                            <li class="active"><a href="{{ url('/') }}/salas/crear">Crear Salas</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

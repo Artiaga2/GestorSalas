@@ -22,7 +22,11 @@ class SalasController extends Controller
     }
 
     public function store(CreateSalaRequest $request){
+
+        $user = $request->user();
+
         Salas::create([
+            'user_id'        => $user->id,
             'Nombre'         => $request->input('nombre'),
             'Tipo'           => ('Sala de estudio'),
             'Imagen'         => 'http://lorempixel.com/150/150/?\'.mt_rand(0,1000)',

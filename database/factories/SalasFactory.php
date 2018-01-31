@@ -11,10 +11,10 @@ $factory->define(Salas::class, function (Faker $faker) {
 
     return [
         'nombre'         => $faker->firstName(),
-        'tipo'           => $faker->randomElements($array = array('Sala de estudio', 'Auditorio', 'Sala de juegos'), 1),
+        'tipo'           => $faker->randomElement($array = array('Sala de estudio', 'Auditorio', 'Sala de juegos')),
         'imagen'         => 'http://lorempixel.com/150/150/?random',
         'capacidad'      => $faker->randomDigit,
-        'disponibilidad' => $faker->randomElements($array1 = array('Libre', 'Ocupada', 'Cerrada'), 1),
+        'disponibilidad' => $faker->randomElement($array1 = array('Libre', 'Ocupada', 'Cerrada')),
         'created_at'=> ($time1 < $time2) ? $time1 : $time2,
         'updated_at'=> ($time1 > $time2) ? $time1 : $time2
     ];

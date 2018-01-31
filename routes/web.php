@@ -14,10 +14,10 @@
 Route::get('/', 'PagesController@home');
 Route::get('/saludo', 'PagesController@saludo');
 
-Route::get('/salas/crear', 'SalasController@create');
+Route::get('/salas/crear', 'SalasController@create')->middleware('auth');
 Route::get('/salas/{id}', 'SalasController@show');
-Route::post('/salas/crear', 'SalasController@store');
-//Route::get('/home', 'HomeController@index');
+Route::post('/salas/crear', 'SalasController@store')->middleware('auth');
+Route::get('/home', 'HomeController@index');
 
 
 

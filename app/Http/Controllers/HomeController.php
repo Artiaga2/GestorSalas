@@ -25,10 +25,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $salas = Salas::orderBy('created_at', 'desc')->get();
 
-        return view('home',[
-            'salas' => $salas
-        ]);
+        return view('home');
     }
 }

@@ -17,10 +17,10 @@ Route::get('/saludo', 'PagesController@saludo');
 Route::get('/salas/crear', 'SalasController@create');
 Route::get('/salas/{id}', 'SalasController@show');
 Route::post('/salas/crear', 'SalasController@store');
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -10,10 +10,10 @@
                 <th>Disponibilidad</th>
             </tr>
             <tr>
-                <td>{{ $salas['nombre'] }}</td>
-                <td>{{ $salas['tipo'] }}</td>
-                <td>{{ $salas['capacidad'] }}</td>
-                <td>{{ $salas['disponibilidad'] }}</td>
+                <td>{{ $sala['nombre'] }}</td>
+                <td>{{ $sala['tipo'] }}</td>
+                <td>{{ $sala['capacidad'] }}</td>
+                <td>{{ $sala['disponibilidad'] }}</td>
             </tr>
         </table>
     </div>

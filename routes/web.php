@@ -18,11 +18,7 @@ Route::get('/salas/crear', 'SalasController@create')->middleware('auth');
 Route::get('/salas/{id}', 'SalasController@show');
 Route::post('/salas/crear', 'SalasController@store')->middleware('auth');
 //Route::get('/home', 'HomeController@index');
-Route::get('/users/{user}','UsersController@index');
-Route::get('/perfil/{user}')
-
-
-
 Auth::routes();
 
+Route::get('/{user}','UsersController@index');
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -56,9 +56,9 @@
 
                                 <ul class="dropdown-menu">
 
-                                    @if( Auth::check())
-                                        <li class="active"><a href="{{ url('/') }}/users/profile">Perfil</a></li>
-                                    @endif
+                                    @auth
+                                        <li class="active"><a href="{{ url('/') }}/{{Auth::user()->slug}}">Perfil</a></li>
+                                    @endauth
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

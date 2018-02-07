@@ -17,15 +17,14 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('lastName');
-            $table->string('slug')->unique();
             $table->string('userName')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('ciudad');
-            $table->integer('codigoPostal');
-            $table->integer('numeroTarjeta')->unique();
+            $table->string('codigoPostal');
+            $table->bigInteger('numeroTarjeta')->unique();
             $table->string('tipoTarjeta');
-            $table->integer('tlfMovil')->unique();
+            $table->bigInteger('tlfMovil')->unique();
             $table->string('website');
             $table->string('about');
             $table->string('avatar');

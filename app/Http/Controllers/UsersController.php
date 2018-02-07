@@ -12,11 +12,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index($slug)
     {
+        $user = $this->findUserByUsername($slug);
         $salas = $user->salas()->paginate(10);
 
-        return view('users.index',[
+        return view('users.listado',[
             'user' => $user,
             'salas' => $salas
         ]);
@@ -87,5 +88,10 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function findUserByUsername($slug)
+    {
+        return User::where('slug', $slug)->first();
     }
 }

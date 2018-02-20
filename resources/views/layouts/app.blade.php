@@ -57,6 +57,7 @@
                                 <ul class="dropdown-menu">
 
                                     @auth
+
                                         <li class="active"><a href="{{ url('/') }}/{{Auth::user()->userName}}">Perfil</a></li>
                                     @endauth
                                     <li>

@@ -31,6 +31,6 @@ class CreateSalasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salas' );
+        Schema::dropIfExists('salas');
     }
 }

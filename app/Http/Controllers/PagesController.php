@@ -15,7 +15,7 @@ class PagesController extends Controller
     public function home(){
 //            return view('welcome');
 
-            $salas = Salas::orderBy('created_at', 'desc')->get();
+            $salas = Salas::orderBy('created_at', 'desc')->paginate(10);
 
             return view('home',[
                 'salas' => $salas
@@ -34,6 +34,28 @@ class PagesController extends Controller
                 'saludo' => $saludo,
                 'usuario'=> $usuario
                     ]);
+    }
+
+    public function damePaginaSalas(){
+        if (request()->ajax()){
+            $salas = Salas::orderBy('created_at', 'desc')->paginate(10);
+            return View::make('listado', array('salas' => $salas))->render();
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function damePaginaSalasJSON(){
+        $salas = Salas::orderBy('created_at', 'desc')->paginate(10);
+        return response()->json([
+            View::make('listado', array('salas' => $salas))->render()
+        ]);
+    }
+
+    public function damePaginaSalasJSON2(){
+
+        $salas = Salas::orderBy('created_at', 'desc')->paginate(10);
+        return $salas;
     }
 }
 

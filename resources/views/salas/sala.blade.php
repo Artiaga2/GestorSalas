@@ -9,4 +9,5 @@
         <p><strong> Disponibilidad:</strong> {{$sala['disponibilidad']}}</p>
         <p><strong>Fecha:</strong> {{ \Carbon\Carbon::parse($sala->created_at)->format('d/m/Y') }}</p>
     </div>
+
 </div>

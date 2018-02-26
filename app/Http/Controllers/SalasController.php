@@ -25,13 +25,14 @@ class SalasController extends Controller
 
         $user = $request->user();
 
+
         Salas::create([
             'user_id'        => $user->id,
             'Nombre'         => $request->input('nombre'),
             'Tipo'           => ('Sala de estudio'),
             'Imagen'         => 'http://lorempixel.com/150/150/?\'.mt_rand(0,1000)',
             'Capacidad'      => '10',
-            'Disponibilidad' => 'Libre'
+            'Disponibilidad' => 'Libre',
 
         ]);
 

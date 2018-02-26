@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Salas;
+use App\Http\Controllers\SalasController;
 
 class UsersController extends Controller
 {
@@ -19,7 +21,7 @@ class UsersController extends Controller
 
         $salas = $user->salas()->paginate(10);
 
-        return view('users.listado',[
+        return view('users.index',[
             'user' => $user,
             'salas' => $salas
         ]);

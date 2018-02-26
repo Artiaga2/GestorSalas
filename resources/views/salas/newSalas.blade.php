@@ -1,5 +1,5 @@
 @auth()
-    <form action="{{ url('/') }}/salas/crear" method="post">
+    <form action="{{ url('/') }}/crear" method="post">
         {{ csrf_field() }}
         <div class="form-group @if( $errors->has('nombre'))has-error @endif">
             <label for="nombre" class="col-md-4 control-label">Nombre</label>

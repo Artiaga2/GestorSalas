@@ -28,14 +28,23 @@ class SalasController extends Controller
 
         Salas::create([
             'user_id'        => $user->id,
-            'Nombre'         => $request->input('nombre'),
-            'Tipo'           => ('Sala de estudio'),
-            'Imagen'         => 'http://lorempixel.com/150/150/?\'.mt_rand(0,1000)',
-            'Capacidad'      => '10',
-            'Disponibilidad' => 'Libre',
+            'nombre'         => $request->input('nombre'),
+            'tipo'           => ('Sala de estudio'),
+            'imagen'         => 'http://lorempixel.com/150/150/?\'.mt_rand(0,1000)',
+            'capacidad'      => '10',
+            'disponibilidad' => 'Libre',
 
         ]);
 
         return redirect('/');
+    }
+
+    public function tabla()
+    {
+        $tablaSalas = Salas::all();
+
+        return view('salas.tabla', [
+            'tablaSalas' => $tablaSalas
+        ]);
     }
 }

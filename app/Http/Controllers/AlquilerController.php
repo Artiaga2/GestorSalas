@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Alquiler;
+use App\Salas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlquilerController extends Controller
 {
@@ -14,7 +16,11 @@ class AlquilerController extends Controller
      */
     public function index()
     {
-        //
+        $alquiler = Alquiler::all();
+
+        return view('alquiler.create',[
+            'alquiler' => $alquiler,
+        ]);
     }
 
     /**
@@ -35,7 +41,8 @@ class AlquilerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $salas = Salas::where('id', 1)->first();
     }
 
     /**

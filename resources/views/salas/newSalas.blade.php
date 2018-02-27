@@ -1,4 +1,5 @@
 @auth()
+    <div class="container my-5 bg-primary">
     <form action="{{ url('/') }}/crear" method="post">
         {{ csrf_field() }}
         <div class="form-group @if( $errors->has('nombre'))has-error @endif">
@@ -14,8 +15,8 @@
         @endif
 
         <div class="form-group @if( $errors->has('imagen'))has-error @endif">
-            <label for="imagen" class="col-md-4 control-label">Imagen</label>
-            <input type="text" class="form-control" id="imagen" name="imagen">
+            <label for="image" class="col-md-4 control-label">Imagen</label>
+            <input type="text" class="form-control" id="image" name="imagen">
         </div>
         @if($errors->has('imagen'))
             @foreach($errors->get('imagen') as $message)
@@ -51,12 +52,8 @@
         @endif
 
         <div class="form-group @if( $errors->has('disponibilidad'))has-error @endif">
-            <label for="disponibilidad" class="col-md-4 control-label">Disponibilidad</label>
-            <select class="form-control" id="disponibilidad" name="disponibilidad">
-                <option value="libre">Libre</option>
-                <option value="ocupada">Ocupado</option>
-                <option value="cerrada">Cerrada</option>
-            </select>
+            <label for="tags" class="col-md-4 control-label">Disponibilidad</label>
+            <input type="text" class="form-control" name="tags" id="tags">
         </div>
         @if($errors->has('disponibilidad'))
             @foreach($errors->get('disponibilidad') as $message)
@@ -66,7 +63,16 @@
             @endforeach
         @endif
 
-        <button type="submit">Enviar</button>
+        <button class="flex-md-column" type="submit">Enviar</button>
     </form>
+    </div>
 @endauth
+
+@push('scripts')
+    <script src="{{ asset('js/autocomplete.js') }}" defer></script>
+
+
+@endpush
+
+
 

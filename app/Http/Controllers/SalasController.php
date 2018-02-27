@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Salas;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateSalaRequest;
 
@@ -30,7 +31,7 @@ class SalasController extends Controller
             'user_id'        => $user->id,
             'nombre'         => $request->input('nombre'),
             'tipo'           => ('Sala de estudio'),
-            'imagen'         => 'http://lorempixel.com/150/150/?\'.mt_rand(0,1000)',
+            'imagen'         => 'http://lorempixel.com/150/150/?.mt_rand(0,1000)',
             'capacidad'      => '10',
             'disponibilidad' => 'Libre',
 
@@ -39,7 +40,7 @@ class SalasController extends Controller
         return redirect('/');
     }
 
-    public function tabla()
+        public function tabla()
     {
         $tablaSalas = Salas::all();
 

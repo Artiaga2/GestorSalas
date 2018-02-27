@@ -1,39 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-4">
+    <div class="container my-5">
         <table id="tablaSalas" class="table table-dark table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
                 <th>Imagen</th>
-                <th>Titulo</th>
-                <th>Precio</th>
-                <th>categoria</th>
-                <th>Propietario</th>
-                <th>Poblacion</th>
-                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Capacidad</th>
+                <th>Disponibilidad</th>
             </tr>
             </thead>
             <tbody>
             @foreach($tablaSalas as $sala)
                 <tr>
                     <td>
-                        <a href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">
-                            <img class="ancho_max_imagen_tabla lozad" data-src="{{$producto->foto}}"
-                                 alt="Foto del producto {{ $producto['titulo'] }}">
-                        </a>
+                            <img class="draggable" src="{{$sala->imagen}}">
                     </td>
                     <td>
-                        <a href="/producto/{{ $producto['id'] }}" TARGET="_BLANK">{{$producto->titulo}}</a>
+                        {{$sala->nombre}}
                     </td>
-                    <td>{{$producto->precio}} €</td>
-                    <td>{{$producto->categoria}}</td>
-                    <td>
-                        <a href="/user/{{ $producto->user->slug }}"
-                           TARGET="_BLANK">{{$producto->user->nombre_usuario }}</a>
-                    </td>
-                    <td>{{$producto->user->poblacion }}</td>
-                    <td>{{$producto->created_at}}</td>
+                    <td>{{$sala->tipo}}</td>
+                    <td>{{$sala->capacidad}}</td>
+                    <td>{{$sala->disponibilidad }}</td>
                 </tr>
             @endforeach
             </tbody>
@@ -41,8 +31,11 @@
     </div>
 
 
+
 @endsection
+
 @push('scripts')
-    <script src="{{ asset('js/tablaSalas.js') }}" defer></script>
-    <script src="{{ asset('js/lozad.js') }}" defer></script>
+    <script src="{{ asset('js/tablaSalas.js') }}"></script>
+    <script src="{{ asset('js/dragable.js') }}"></script>
+
 @endpush

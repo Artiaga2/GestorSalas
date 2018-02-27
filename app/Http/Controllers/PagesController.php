@@ -57,5 +57,7 @@ class PagesController extends Controller
         $salas = Salas::orderBy('created_at', 'desc')->paginate(10);
         return $salas;
     }
+
+
 }
 

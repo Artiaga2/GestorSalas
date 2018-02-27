@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', 'SalasController@tabla');
 Route::get('/saludo', 'PagesController@saludo');
 
 Route::get('/crear', 'SalasController@create')->middleware('auth');

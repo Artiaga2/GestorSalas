@@ -78,7 +78,7 @@ module.exports = __webpack_require__(48);
 
 $(function () {
     var availableTags = ["Libre", "Ocupado", "Cerrado"];
-    $("#tags").autocomplete({
+    $("#disponibilidad").autocomplete({
         source: availableTags
     });
 });

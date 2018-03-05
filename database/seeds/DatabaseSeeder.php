@@ -14,5 +14,17 @@ class DatabaseSeeder extends Seeder
         factory(App\User::class, 10)->create()->each(function (App\User $user) {
             factory(App\Salas::class, 100)->create(['user_id' => $user->id]);
         });
+
+        \App\Caracteristicas::crearCaracteristicas([
+
+            'nombre' => 'Tele'
+
+        ],
+            [
+                'nombre' => 'Wifi',
+            ],
+            [
+                'nombre' => 'Proyector',
+            ]);
     }
 }

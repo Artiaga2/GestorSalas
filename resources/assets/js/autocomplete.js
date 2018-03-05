@@ -6,7 +6,7 @@ $( function() {
 
 
     ];
-    $( "#tags" ).autocomplete({
+    $( "#disponibilidad" ).autocomplete({
         source: availableTags
     });
 } );

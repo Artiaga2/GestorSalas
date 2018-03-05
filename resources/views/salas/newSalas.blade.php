@@ -52,8 +52,8 @@
         @endif
 
         <div class="form-group @if( $errors->has('disponibilidad'))has-error @endif">
-            <label for="tags" class="col-md-4 control-label">Disponibilidad</label>
-            <input type="text" class="form-control" name="tags" id="tags">
+            <label for="disponibilidad" class="col-md-4 control-label">Disponibilidad</label>
+            <input type="text" class="form-control" name="disponibilidad" id="disponibilidad">
         </div>
         @if($errors->has('disponibilidad'))
             @foreach($errors->get('disponibilidad') as $message)

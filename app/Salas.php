@@ -22,16 +22,16 @@ class Salas extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getFotoAttribute($foto)
-    {
-        if (starts_with($foto, "default_product")) {
-            return $foto;
-        } else if (starts_with($foto, "https://picsum")) {
-            return $foto;
-        } else if (starts_with($foto, "/images/default")) {
-            return $foto;
-        }
-        return Storage::disk('public')->url($foto);
-    }
+//    public function getFotoAttribute($foto)
+//    {
+//        if (starts_with($foto, "default_product")) {
+//            return $foto;
+//        } else if (starts_with($foto, "https://picsum")) {
+//            return $foto;
+//        } else if (starts_with($foto, "/images/default")) {
+//            return $foto;
+//        }
+//        return Storage::disk('public')->url($foto);
+//    }
 
 }

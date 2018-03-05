@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalasCaracteristicasTable extends Migration
+class CaracteristicaSala extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateSalasCaracteristicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('salas_caracteristicas', function (Blueprint $table) {
+        Schema::create('caracteristica_sala', function (Blueprint $table) {
             $table->integer('salas_id')->unsigned();
             $table->integer('caracteristicas_id')->unsigned();
-
             $table->primary(['salas_id', 'caracteristicas_id']);
-
             $table->foreign('salas_id')->references('id')->on('salas')->onDelete('cascade');
             $table->foreign('caracteristicas_id')->references('id')->on('caracteristicas')->onDelete('cascade');
-
         });
     }
 
@@ -32,6 +29,8 @@ class CreateSalasCaracteristicasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salas_caracteristicas');
+        {
+            Schema::dropIfExists('caracteristica_sala');
+        }
     }
 }

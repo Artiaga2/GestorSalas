@@ -19,6 +19,9 @@ $factory->define(App\User::class, function (Faker $faker) {
     $lastName = $faker->lastName;
     $slug = $name . "." . $lastName;
 
+    $time1 = Carbon::createFromTimestamp($faker->dateTimeThisDecade()->getTimestamp());
+    $time2 = Carbon::createFromTimestamp($faker->dateTimeThisDecade()->getTimestamp());
+
     return [
         'name' => $name,
         'lastName' => $lastName,
@@ -32,7 +35,9 @@ $factory->define(App\User::class, function (Faker $faker) {
         'tlfMovil' => $faker->unique()->e164PhoneNumber,
         'website' => $faker->url,
         'about' => $faker->text,
-        'avatar' => 'https://picsum.photos/150/150/?random',
+        'avatar' => 'https://picsum.photos/120/120/?image=' . mt_rand(0,1000),
         'remember_token' => str_random(10),
+        'created_at'=> ($time1 < $time2) ? $time1 : $time2,
+        'updated_at'=> ($time1 > $time2) ? $time1 : $time2
     ];
 });

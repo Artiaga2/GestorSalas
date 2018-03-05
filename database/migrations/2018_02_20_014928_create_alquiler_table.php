@@ -17,7 +17,8 @@ class CreateAlquilerTable extends Migration
             $table->increments('id');
             $table->integer('salas_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->dateTime('fecha_alquiler');
+            $table->dateTime('fecha_inicio_alquiler');
+            $table->dateTime('fecha_finalizacion_alquiler');
 
             $table->foreign('salas_id')->references('id')->on('salas');
             $table->foreign('user_id')->references('id')->on('users');

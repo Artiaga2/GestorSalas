@@ -13,7 +13,7 @@ class CaracteristicaSala extends Migration
      */
     public function up()
     {
-        Schema::create('caracteristica_sala', function (Blueprint $table) {
+        Schema::create('caracteristicas_salas', function (Blueprint $table) {
             $table->integer('salas_id')->unsigned();
             $table->integer('caracteristicas_id')->unsigned();
             $table->primary(['salas_id', 'caracteristicas_id']);
@@ -30,7 +30,7 @@ class CaracteristicaSala extends Migration
     public function down()
     {
         {
-            Schema::dropIfExists('caracteristica_sala');
+            Schema::dropIfExists('caracteristicas_salas');
         }
     }
 }

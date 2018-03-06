@@ -14,18 +14,18 @@ class Caracteristicas extends Model
         return $this->belongsToMany(Salas::class);
     }
 
-    public static  function crearCaracteristicas(){
-        Caracteristicas::create([
-
-            'nombre' => 'Television'
-        ]);
-        Caracteristicas::create([
-
-            'nombre' => 'Wifi'
-        ]);
-        Caracteristicas::create([
-
-            'nombre' => 'Proyector'
-        ]);
-    }
+//    public static function crearCaracteristicas(){
+//        Caracteristicas::create([
+//
+//
+//        ]);
+//        Caracteristicas::create([
+//
+//            'nombre' => 'Wifi'
+//        ]);
+//        Caracteristicas::create([
+//
+//            'nombre' => 'Proyector'
+//        ]);
+//    }
 }

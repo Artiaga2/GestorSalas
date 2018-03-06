@@ -34,4 +34,9 @@ class Salas extends Model
 //        return Storage::disk('public')->url($foto);
 //    }
 
+    public function caracteristicas()
+    {
+        return $this->belongsToMany(Caracteristicas::class);
+    }
+
 }

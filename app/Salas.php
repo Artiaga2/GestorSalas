@@ -39,4 +39,5 @@ class Salas extends Model
         return $this->belongsToMany(Caracteristicas::class);
     }
 
+
 }

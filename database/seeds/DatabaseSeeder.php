@@ -19,20 +19,30 @@ class DatabaseSeeder extends Seeder
 
         $users = factory(App\User::class, 10)->create();
 
-        $category = \App\Caracteristicas::all();
+        $caracteristicas = \App\Caracteristicas::all();
+
+        $alquiler = factory(App\Alquiler::class, 10)->create();
 
 
-        $users->each(function (App\User $user) use ($users, $category) {
+        $users->each(function (App\User $user) use ($users, $caracteristicas, $alquiler) {
             $salas = factory(App\Salas::class, 10)->create([
                 'user_id' => $user->id
             ]);
 
 
-            $salas->each(function (App\Salas $sala) use ($category, $users) {
+            $salas->each(function (App\Salas $sala) use ($caracteristicas, $users, $alquiler) {
+                $alquiler->create([
+                    'user_id' => $sala->user_id,
+                    'salas_id' => $sala->id
+                ]);
+
                 $sala->caracteristicas()->sync(
-                    $category->random(mt_rand(1, 4))
+                    $caracteristicas->random(mt_rand(1, 4))
                 );
+
+
             });
+
 
         });
 

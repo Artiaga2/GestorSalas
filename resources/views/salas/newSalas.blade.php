@@ -53,7 +53,11 @@
 
         <div class="form-group @if( $errors->has('disponibilidad'))has-error @endif">
             <label for="disponibilidad" class="col-md-4 control-label">Disponibilidad</label>
-            <input type="text" class="form-control" name="disponibilidad" id="disponibilidad">
+            <select id="disponibilidad">
+                <option value="Libre">Cerrada</option>
+                <option value="Ocupada">Libre</option>
+                <option value="Cerrada">Ocupada</option>
+            </select>
         </div>
         @if($errors->has('disponibilidad'))
             @foreach($errors->get('disponibilidad') as $message)
@@ -69,7 +73,7 @@
 @endauth
 
 @push('scripts')
-    <script src="{{ asset('js/autocomplete.js') }}" defer></script>
+    {{--<script src="{{ asset('js/autocomplete.js') }}" defer></script>--}}
 
 
 @endpush

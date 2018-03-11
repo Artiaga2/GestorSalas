@@ -10,6 +10,8 @@
                 <th>Tipo</th>
                 <th>Capacidad</th>
                 <th>Disponibilidad</th>
+                <th>Precio</th>
+                <th>Caracteristicas</th>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +26,14 @@
                     <td>{{$sala->tipo}}</td>
                     <td>{{$sala->capacidad}}</td>
                     <td>{{$sala->disponibilidad }}</td>
+                    <td>{{$sala->precio }}€</td>
+
+                    <td>
+                        @foreach($sala->caracteristicasSalas() as $caracteristica)
+                            <p>{{$caracteristica->nombre}}</p>
+                        @endforeach
+                    </td>
+
                 </tr>
             @endforeach
             </tbody>
@@ -36,6 +46,6 @@
 
 @push('scripts')
     <script src="{{ asset('js/tablaSalas.js') }}"></script>
-    <script src="{{ asset('js/dragable.js') }}"></script>
+    {{--<script src="{{ asset('js/dragable.js') }}"></script>--}}
 
 @endpush

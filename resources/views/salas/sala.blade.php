@@ -1,13 +1,48 @@
-<div class="row sala">
-    <div class="col-md-2">
-        <img src="{{ $sala['image'] }}?{{ $sala['id'] }}" alt="">
-    </div>
-    <div class="col-md-10">
-        <p class="sala-text">{{ $sala->nombre }}</p>
-        <p><strong>Tipo:</strong> {{ $sala['tipo'] }}</p>
-        <p><strong> Capacidad:</strong> {{$sala['capacidad']}}</p>
-        <p><strong> Disponibilidad:</strong> {{$sala['disponibilidad']}}</p>
-        <p><strong>Fecha:</strong> {{ \Carbon\Carbon::parse($sala->created_at)->format('d/m/Y') }}</p>
-    </div>
+<div class="container my-5">
+        <table id="tablaSalas" class="table table-dark table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Capacidad</th>
+                <th>Disponibilidad</th>
+                <th>Precio</th>
+                <th>Caracteristicas</th>
+                <th>Borrar/Actualizar</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img class="draggable" src="{{$sala->imagen}}">
+                    </td>
+                    <td>
+                        {{$sala->nombre}}
+                    </td>
+                    <td>{{$sala->tipo}}</td>
+                    <td>{{$sala->capacidad}}</td>
+                    <td>{{$sala->disponibilidad }}</td>
+                    <td>{{$sala->precio }}€</td>
 
-</div>
+                    <td>
+                        @foreach($sala->caracteristicasSalas() as $caracteristica)
+                            <p>{{$caracteristica->nombre}}</p>
+                        @endforeach
+                    </td>
+
+                    <td>
+                        @can('delete', $salas)
+                            <form action="{{ Route('salas.delete', $sala->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+
+                                <button type="submit" class="button alert">Borrar</button>
+                            </form>
+                        @endcan
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>

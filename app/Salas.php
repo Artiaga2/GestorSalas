@@ -39,5 +39,8 @@ class Salas extends Model
         return $this->belongsToMany(Caracteristicas::class);
     }
 
+    public function caracteristicasSalas(){
+        return $this->caracteristicas;
+    }
 
 }

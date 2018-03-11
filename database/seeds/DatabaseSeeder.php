@@ -21,20 +21,22 @@ class DatabaseSeeder extends Seeder
 
         $caracteristicas = \App\Caracteristicas::all();
 
-        $alquiler = factory(App\Alquiler::class, 10)->create();
 
 
-        $users->each(function (App\User $user) use ($users, $caracteristicas, $alquiler) {
+        $users->each(function (App\User $user) use ($users, $caracteristicas) {
             $salas = factory(App\Salas::class, 10)->create([
                 'user_id' => $user->id
             ]);
 
 
-            $salas->each(function (App\Salas $sala) use ($caracteristicas, $users, $alquiler) {
-                $alquiler->create([
+            $salas->each(function (App\Salas $sala) use ($caracteristicas, $users) {
+                factory(App\Alquiler::class, 10)->create([
                     'user_id' => $sala->user_id,
                     'salas_id' => $sala->id
+
                 ]);
+
+
 
                 $sala->caracteristicas()->sync(
                     $caracteristicas->random(mt_rand(1, 4))

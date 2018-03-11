@@ -11,7 +11,7 @@ $factory->define(Salas::class, function (Faker $faker) {
 
     return [
         'nombre'         => $faker->firstName(),
-        'tipo'           => $faker->randomElement($array = array('Sala de estudio', 'Auditorio', 'Sala de juegos')),
+        'tipo'           => $faker->randomElement($array = array('Sala de estudio', 'Sala de Trabajo', 'Sala de juegos')),
         'imagen'         => 'https://picsum.photos/120/120/?image=' . mt_rand(0,1000),
         'capacidad'      => $faker->randomDigit,
         'disponibilidad' => $faker->randomElement($array1 = array('Libre', 'Ocupada', 'Cerrada')),

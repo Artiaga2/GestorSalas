@@ -13,7 +13,7 @@ class CreateAlquilerTable extends Migration
      */
     public function up()
     {
-        Schema::create('alquiler', function (Blueprint $table) {
+        Schema::create('alquilers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('salas_id')->unsigned();
             $table->integer('user_id')->unsigned();
@@ -33,6 +33,6 @@ class CreateAlquilerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alquiler');
+        Schema::dropIfExists('alquilers');
     }
 }

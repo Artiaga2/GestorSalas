@@ -14,16 +14,20 @@
 Route::get('/', 'SalasController@tabla');
 Route::get('/saludo', 'PagesController@saludo');
 
-Route::get('/crear', 'SalasController@create')->middleware('auth');
-Route::get('/salas/{id}', 'SalasController@show');
-Route::post('/crear', 'SalasController@store')->middleware('auth');
 //Route::get('/home', 'HomeController@index');
-
-Route::get('/dameChusqers/', 'PagesController@damePaginaChusqers');
+Route::delete('/salas/{sala}', 'SalasController@destroy')->name('salas.delete');
 
 Auth::routes();
 
-Route::get('/{user}','UsersController@index');
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/crear', 'SalasController@create');
+    Route::get('/alquiler', 'SalasController@create');
+    Route::get('/salas/{id}', 'SalasController@show');
+    Route::post('/crear', 'SalasController@store');
+    Route::get('/{user}','UsersController@show');
+});
+
 //Route::get('/home', 'HomeController@index')->name('home');
 
 

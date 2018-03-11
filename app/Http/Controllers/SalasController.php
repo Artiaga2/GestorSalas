@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Caracteristicas;
 use App\Salas;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateSalaRequest;
+use Illuminate\Support\Facades\Auth;
 
 class SalasController extends Controller
 {
@@ -47,5 +49,16 @@ class SalasController extends Controller
         return view('salas.tabla', [
             'tablaSalas' => $tablaSalas
         ]);
+    }
+
+    public function destroy(Salas $sala)
+    {
+        if( ! Auth::user()->can('delete', $sala) ){
+           return redirect()->route('home');
+        }
+
+        $sala->delete();
+
+        return redirect()->route('user', Auth::user()->userName);
     }
 }

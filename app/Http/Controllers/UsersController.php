@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Salas;
 use App\Http\Controllers\SalasController;
+use Illuminate\Foundation\Testing\HttpException;
 
 class UsersController extends Controller
 {
@@ -15,16 +16,9 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index($user)
+    public function index($id)
     {
-        $user = $this->findUserByUsername($user);
 
-        $salas = $user->salas()->paginate(10);
-
-        return view('users.index',[
-            'user' => $user,
-            'salas' => $salas
-        ]);
 
     }
 
@@ -55,9 +49,17 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user)
     {
-        //
+
+        $user = $this->findUserByUsername($user);
+
+        $salas = $user->salas()->paginate(10);
+
+        return view('users.index',[
+            'user' => $user,
+            'salas' => $salas
+        ]);
     }
 
     /**
@@ -96,7 +98,7 @@ class UsersController extends Controller
 
     public function findUserByUsername($slug)
     {
-        return User::where('userName', $slug)->first();
+        return User::where('userName', $slug)->firstOrFail();
 
     }
 }

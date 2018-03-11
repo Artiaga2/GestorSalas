@@ -53,14 +53,26 @@
 
         <div class="form-group @if( $errors->has('disponibilidad'))has-error @endif">
             <label for="disponibilidad" class="col-md-4 control-label">Disponibilidad</label>
-            <select id="disponibilidad">
-                <option value="Libre">Cerrada</option>
-                <option value="Ocupada">Libre</option>
-                <option value="Cerrada">Ocupada</option>
+            <select class="form-control" id="disponibilidad" name="disponibilidad">
+                <option value="libre">Libre</option>
+                <option value="ocupada">Ocupado</option>
+                <option value="cerrada">Cerrada</option>
             </select>
         </div>
         @if($errors->has('disponibilidad'))
             @foreach($errors->get('disponibilidad') as $message)
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @endforeach
+        @endif
+
+        <div class="form-group @if( $errors->has('precio'))has-error @endif">
+            <label for="precio" class="col-md-4 control-label">precio</label>
+            <input type="text" class="form-control" id="precio" name="precio">
+        </div>
+        @if($errors->has('precio'))
+            @foreach($errors->get('precio') as $message)
                 <div class="alert alert-danger" role="alert">
                     {{ $message }}
                 </div>

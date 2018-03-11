@@ -12,7 +12,7 @@ class Salas extends Model
 
 
     protected $fillable = [
-        'user_id', 'nombre', 'tipo', 'imagen','capacidad', 'disponibilidad',
+        'user_id', 'nombre', 'tipo', 'imagen','capacidad', 'disponibilidad', 'precio', 'caracteristicas'
     ];
 
     protected $guarded =['id', 'created_at', 'updated_at'];

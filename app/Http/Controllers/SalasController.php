@@ -36,6 +36,7 @@ class SalasController extends Controller
             'imagen'         => 'http://lorempixel.com/150/150/?.mt_rand(0,1000)',
             'capacidad'      => '10',
             'disponibilidad' => 'Libre',
+            'precio'         => '10'
 
         ]);
 
